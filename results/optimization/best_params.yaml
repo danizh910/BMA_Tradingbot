@@ -1,0 +1,55 @@
+# Erzeugt von scripts/run_optimization.py (nur In-Sample). Nicht von Hand ändern.
+s1_sma_crossover:
+  name: S1 SMA-Crossover
+  params:
+    fast: 50
+    slow: 140
+  sharpe_is: 0.8047
+  sharpe_is_default: 0.5399
+  plateau_mean_sharpe: 0.6537
+  plateau_n_neighbours: 4
+  n_trials: 100
+  dsr: 0.8571
+  dsr_all_strategies: 0.0258
+  n_trials_all_strategies: 400
+s2_momentum_atr:
+  name: S2 Momentum+ATR
+  params:
+    roc_period: 20
+    atr_mult: 1.7
+  sharpe_is: 0.9523
+  sharpe_is_default: 0.7378
+  plateau_mean_sharpe: 0.8705
+  plateau_n_neighbours: 4
+  n_trials: 100
+  dsr: 0.7909
+  dsr_all_strategies: 0.0453
+  n_trials_all_strategies: 400
+s3_rsi_reversion:
+  name: S3 RSI-Reversion
+  params:
+    oversold: 40
+    overbought: 85
+    rsi_period: 21
+  sharpe_is: 0.593
+  sharpe_is_default: -0.6336
+  plateau_mean_sharpe: -0.1773
+  plateau_n_neighbours: 4
+  n_trials: 100
+  dsr: 0.3341
+  dsr_all_strategies: 0.0072
+  n_trials_all_strategies: 400
+s4_feargreed_trend:
+  name: S4 Fear&Greed+MA
+  params:
+    greed_level: 65
+    fear_level: 35
+    ma_slow: 60
+  sharpe_is: 1.4088
+  sharpe_is_default: 0.8459
+  plateau_mean_sharpe: 1.2657
+  plateau_n_neighbours: 4
+  n_trials: 100
+  dsr: 0.9846
+  dsr_all_strategies: 0.2484
+  n_trials_all_strategies: 400

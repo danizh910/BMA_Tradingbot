@@ -27,7 +27,7 @@ Bei jedem Review von KI-generiertem Code durchgehen. Gefundene Fehler → `docs/
 - [ ] **√365:** Annualisierung mit `annualization_days` = 365 (Krypto), nicht 252.
 - [ ] **rf täglich:** risikofreier Zins in Tageszins umgerechnet, bevor er abgezogen wird.
 - [ ] **Drawdown aus Equity-Kurve:** Max Drawdown = min(Equity / laufendes Maximum − 1), nicht aus Einzelrenditen.
-- [ ] **Sortino nur Downside:** Nenner = Standardabweichung nur der negativen Renditen.
+- [ ] **Sortino nur Downside:** Nenner = Downside Deviation √(Σ min(0, r − rf)² / T) über ALLE T Tage (positive Tage zählen mit 0). Nicht die Standardabweichung nur der negativen Tage.
 - [ ] **Division durch 0:** z. B. Standardabweichung 0 (keine Trades) → definiertes Ergebnis statt inf/NaN-Absturz.
 
 ## Allgemein

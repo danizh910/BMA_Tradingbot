@@ -1,0 +1,47 @@
+# Strategie-Konfiguration: Standardparameter, feste Parameter und Optimierungs-Grids.
+# Im Code wird nichts davon hart codiert (siehe CLAUDE.md).
+#
+# params:      Standardwerte (inkl. fester Parameter, die nicht optimiert werden)
+# param_grid:  Werte für die Grid Search (nur In-Sample).
+#              Reihenfolge = Heatmap-Achsen: 1. Parameter = x-Achse, 2. = y-Achse,
+#              3. Parameter (falls vorhanden) = eine Heatmap pro Wert.
+
+s1_sma_crossover:
+  params:
+    fast: 50
+    slow: 200
+  param_grid:
+    fast: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+    slow: [120, 140, 160, 180, 200, 220, 240, 260, 280, 300]
+
+s2_momentum_atr:
+  params:
+    roc_period: 30
+    atr_mult: 1.5
+    atr_period: 14        # fest: ATR nach Wilder
+    atr_baseline: 20      # fest: SMA-Länge der ATR-Baseline
+  param_grid:
+    roc_period: [10, 20, 30, 45, 60, 90, 120, 150, 180, 200]
+    atr_mult: [1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0]
+
+s3_rsi_reversion:
+  params:
+    rsi_period: 14
+    oversold: 30
+    overbought: 70
+    trend_ma: 200         # fest: 200-Tage-Filter (bull = Close > SMA)
+  param_grid:
+    oversold: [25, 30, 35, 40, 45]
+    overbought: [65, 70, 75, 80, 85]
+    rsi_period: [7, 10, 14, 21]
+
+s4_feargreed_trend:
+  params:
+    greed_level: 50
+    fear_level: 30
+    ma_slow: 50
+    ma_fast: 20           # fest: schneller SMA für trend_up
+  param_grid:
+    greed_level: [45, 50, 55, 60, 65]
+    fear_level: [20, 25, 30, 35, 40]
+    ma_slow: [30, 40, 50, 60]

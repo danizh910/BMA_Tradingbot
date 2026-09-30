@@ -35,4 +35,11 @@ Die Qualität des KI-generierten Codes ist selbst Untersuchungsgegenstand. **Nac
 - Setup: `uv sync`
 - Daten: `uv run python scripts/fetch_data.py` (`--refresh` = neu herunterladen)
 - Tests: `uv run pytest`
+- Optimierung (IS): `uv run python scripts/run_optimization.py`
+- In-Sample-Auswertung: `uv run python scripts/run_insample.py`
+- OOS (nur mit Freigabe des Teams): `BMA_ALLOW_OOS=1 uv run python scripts/run_oos.py`
 - Dashboard: `uv run streamlit run dashboard/app.py`
+
+## Git
+- Tag `v0.1-ki-unreviewed` = erstes lauffähiges KI-Ergebnis vor dem Review. **Nie verändern oder verschieben.**
+- Fehler aus dem Review: Eintrag in `docs/ki_fehlerlog.csv`, Behebung in eigenem Commit mit Message «fix(review): …».

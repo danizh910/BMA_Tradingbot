@@ -11,6 +11,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[2]
 SETTINGS_FILE = ROOT / "config" / "settings.yaml"
+STRATEGIES_FILE = ROOT / "config" / "strategies.yaml"
 RAW_DIR = ROOT / "data" / "raw"
 PROCESSED_DIR = ROOT / "data" / "processed"
 RESULTS_DIR = ROOT / "results"
@@ -36,3 +37,13 @@ def load_settings(path: Path = SETTINGS_FILE) -> dict:
     if not settings["warmup_start"] < settings["binance_start"] < settings["eval_start"] <= settings["is_end"]:
         raise ValueError("Reihenfolge warmup_start < binance_start < eval_start <= is_end verletzt.")
     return settings
+
+
+def load_strategy_config(path: Path = STRATEGIES_FILE) -> dict:
+    """Liest config/strategies.yaml (Standardparameter und Grids aller Strategien).
+
+    WARUM: Strategie-Parameter gehören laut Projektregel in eine Config-Datei,
+    damit Standardwerte und Optimierungsbereiche ohne Codeänderung sichtbar sind.
+    """
+    with open(path, encoding="utf-8") as f:
+        return yaml.safe_load(f)

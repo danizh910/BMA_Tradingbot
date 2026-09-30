@@ -2,7 +2,7 @@
 
 Berufsmaturitätsarbeit (BMA): Ein regelbasierter Bitcoin-Trading-Bot wird mit KI-gestützter Softwareentwicklung gebaut und im Backtesting (BTC/USDT, Tagesdaten 2018–2025, inkl. Transaktionskosten) mit Buy & Hold verglichen. Gemessen wird die risikoadjustierte Performance (Sharpe Ratio, Max Drawdown) im Out-of-Sample-Zeitraum 2023–2025.
 
-**Stand:** Projektstruktur und Datenpipeline. Strategien und Backtester folgen.
+**Stand:** Datenpipeline, Backtester, vier Strategien, Ensemble, Optimierung und In-Sample-Auswertung. Der Out-of-Sample-Test ist vorbereitet, aber noch nicht ausgeführt.
 
 ## Datenquellen
 
@@ -41,6 +41,21 @@ from bot.data.dataset import get_data
 df = get_data("is")   # "warmup_is", "is"; "oos"/"full" nur mit BMA_ALLOW_OOS=1
 ```
 
+## Backtests (nur In-Sample)
+
+```bash
+uv run python scripts/run_optimization.py   # Grid Search S1–S4 → results/optimization/
+uv run python scripts/run_insample.py       # alle Varianten vs. Buy & Hold → results/insample_*
+```
+
+Strategie-Parameter und Grids: `config/strategies.yaml`.
+
+Out-of-Sample (nur auf ausdrückliche Freigabe des Teams, sauberer Git-Stand nötig):
+
+```bash
+BMA_ALLOW_OOS=1 uv run python scripts/run_oos.py   # → results/oos/
+```
+
 ## Tests
 
 ```bash
@@ -58,10 +73,11 @@ uv run streamlit run dashboard/app.py
 ```
 config/settings.yaml   alle festen Parameter
 src/bot/data/          Loader, Bereinigung, Validierung, Datensatz/Splits
-src/bot/strategies/    (folgt)
-src/bot/backtest/      (folgt)
-src/bot/analysis/      (folgt)
-scripts/fetch_data.py  Datenpipeline
+config/strategies.yaml Strategie-Parameter und Optimierungs-Grids
+src/bot/strategies/    S1–S4, Buy & Hold, Ensemble, Indikatoren
+src/bot/backtest/      Backtester (engine.py)
+src/bot/analysis/      Kennzahlen, Optimierung, Marktphasen, Auswertung
+scripts/               fetch_data, run_optimization, run_insample, run_oos
 dashboard/app.py       Streamlit-Dashboard
 docs/                  Prompt-Log, KI-Fehlerlog, Review-Checkliste, Entscheidungen, OOS-Protokoll
 results/               erzeugte Berichte
