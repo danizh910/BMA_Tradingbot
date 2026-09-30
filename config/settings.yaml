@@ -1,0 +1,32 @@
+# Alle festen Projektwerte. Im Code wird nichts davon hart codiert (siehe CLAUDE.md).
+# Datumswerte werden in config.py als UTC-Zeitstempel eingelesen.
+
+symbol: BTCUSDT
+interval: 1d
+
+binance_start: 2017-08-17          # erste Tageskerze BTCUSDT auf Binance
+warmup_source: bitstamp_btcusd     # Herkunftslabel der Aufwärmdaten (Spalte "source")
+warmup_start: 2016-01-01           # Beginn der Aufwärmdaten (nur für Indikatoren)
+
+eval_start: 2018-01-01             # Beginn der Auswertung (In-Sample)
+is_end: 2022-12-31                 # Ende In-Sample
+oos_start: 2023-01-01              # Beginn Out-of-Sample (muss is_end + 1 Tag sein)
+oos_end: 2025-12-31                # Ende Out-of-Sample
+
+fee_per_trade: 0.001               # 0.1 % pro Positionsänderung
+cost_sensitivity: [0.0015, 0.0025] # zusätzliche Gebührenszenarien
+
+annualization_days: 365            # Krypto handelt 365 Tage/Jahr
+risk_free_rate: 0.0                # jährlich
+regime_ma_days: 200                # gleitender Durchschnitt für Bull/Bear-Phasen
+long_only: true
+
+validation:
+  atr_days: 14                     # Fensterlänge ATR für Ausreisser-Warnung
+  outlier_atr_multiple: 4          # Warnung, wenn High - Low > Faktor x ATR
+
+sources:
+  binance_api: https://api.binance.com/api/v3/klines
+  binance_vision: https://data.binance.vision/data/spot/monthly/klines
+  bitstamp_api: https://www.bitstamp.net/api/v2/ohlc/btcusd/
+  feargreed_api: https://api.alternative.me/fng/?limit=0&format=json

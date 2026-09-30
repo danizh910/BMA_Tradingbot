@@ -1,0 +1,2 @@
+id,datum,version,datei,kategorie,unterkategorie,beschreibung,gefunden_durch,auswirkung,behoben_in_commit,sharpe_vorher,sharpe_nachher,maxdd_vorher,maxdd_nachher
+1,2026-09-30,spezifiziert,src/bot/data/validate.py,programmierlogik,daten,"ATR für die Ausreisserprüfung wurde auf dem mit asfreq(""D"") aufgefüllten Index berechnet. Nach einem fehlenden Tag war die ATR 14 Tage lang NaN, Ausreisser in dieser Zeit wurden nicht erkannt.",test,"Keine bei den echten Daten (keine fehlenden Kurstage), bei Daten mit Lücken wären Warnungen ausgeblieben.",vor Commit behoben (init),,,,

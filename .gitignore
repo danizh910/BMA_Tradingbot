@@ -1,0 +1,14 @@
+# Daten werden nicht versioniert (reproduzierbar über scripts/fetch_data.py + Prüfsummen)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Python / Tools
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+htmlcov/
+.streamlit/secrets.toml
