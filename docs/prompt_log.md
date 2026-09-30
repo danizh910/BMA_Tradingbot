@@ -21,3 +21,29 @@ Ein Eintrag pro Aufgabe. Iterationen = wie oft nachgebessert werden musste (0 = 
 **Zusätzlich zum Auftrag:** `src/bot/data/raw_cache.py`, damit alle drei Loader denselben Cache und dieselbe Prüfsummenlogik nutzen. Ausserdem die Abschnitte `validation` (ATR-Parameter) und `sources` (URLs) in `settings.yaml`.
 
 **Offene Punkte:** siehe `docs/entscheidungen.md` (Status «offen»), vor allem E3 (flache Kerze), E5 (USD/USDT) und E14 (Aufwärmdaten im OOS-Backtest).
+
+---
+
+## 2026-09-30 – Backtester, Strategien, Optimierung, Marktphasen (nur In-Sample)
+
+**Prompt (Zusammenfassung):** Backtester (Exposure 0–1, Position ab t+1, Kosten fee × |Δ Position|, Trades-Liste, Auswertung ab eval_start), Kennzahlen inkl. Deflated Sharpe Ratio, Buy & Hold mit gleicher Startgebühr, vier Strategien mit Zustandslogik (S1 SMA-Crossover, S2 Momentum+ATR, S3 RSI-Reversion, S4 Fear&Greed+MA), gleichgewichtetes Ensemble (Standard/Optimiert), Grid Search nur In-Sample mit Heatmaps, Plateau-Check und DSR, Marktphasen Bull/Bear, In-Sample-Auswertung mit Kosten-Sensitivität, run_oos.py vorbereitet (nicht ausgeführt), Dashboard-Seiten, Tests. Erstes lauffähiges Ergebnis als Tag `v0.1-ki-unreviewed`.
+
+**Iterationen:** 3 (alle vor dem Tag, kein Fehler im Produktivcode durch Tests gefunden)
+1. Regeltest für S3 schlug fehl, weil S3 auf den zufälligen Testdaten nie einstieg (Testmarkt fiel von 100 auf 6). Drift erhöht, S3 stieg trotzdem nur 1× ein.
+2. Regeltest für S3 mit aktiveren Grid-Parametern (rsi_period 7, oversold 45, overbought 65) → 34 Einstiege. Das Problem lag in den Testdaten, nicht in der Strategie.
+3. Titel der Equity-Grafik («Optimiert-Parameter» → «Optimierte Parameter»).
+Zusätzlich: Fehler in der eigenen Review-Checkliste aus Schritt 1 (Sortino-Nenner) gefunden und korrigiert, siehe KI-Fehlerlog #2.
+
+**Geänderte/neue Dateien:**
+- neu: `config/strategies.yaml`, `src/bot/backtest/engine.py`, `src/bot/analysis/{metrics,optimize,regimes,evaluation}.py`, `src/bot/strategies/{base,indicators,sma_crossover,momentum_atr,rsi_reversion,feargreed_trend,benchmark,ensemble}.py`, `scripts/{run_optimization,run_insample,run_oos}.py`, `tests/{test_engine,test_metrics,test_indicators,test_strategies,test_optimize,test_regimes_evaluation}.py`
+- geändert: `src/bot/config.py` (load_strategy_config), `src/bot/strategies/__init__.py`, `dashboard/app.py`, `tests/conftest.py`, `pyproject.toml`/`uv.lock` (matplotlib), `README.md`, `CLAUDE.md`, `docs/entscheidungen.md` (E18–E32, E14/E16 angepasst), `docs/review_checkliste.md`, `docs/ki_fehlerlog.csv`
+- Resultate: `results/optimization/*`, `results/insample_*`
+
+**Commit/Tag:** `0414bd0` = `v0.1-ki-unreviewed`
+
+**Offene Punkte:**
+- Beste Parameter von S3 und S4 liegen am Rand des Grids (siehe Heatmaps). Das Optimum könnte ausserhalb liegen, das Grid wird aber gemäss Vorgabe nicht erweitert.
+- S3 mit Standardparametern handelt nur 2× in 5 Jahren. Die Aussagekraft der Kennzahlen ist entsprechend gering.
+- DSR: Welche Versuchszahl gilt (100 pro Strategie oder 400 insgesamt)? Siehe E25.
+- Ensemble: tägliche Umschichtung ohne Kosten (E22).
+- Alle Annahmen E18–E32 sind noch «offen» und warten auf die Bestätigung durch das Team.
