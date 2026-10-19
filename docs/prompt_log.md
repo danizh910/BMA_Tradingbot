@@ -47,3 +47,17 @@ Zusätzlich: Fehler in der eigenen Review-Checkliste aus Schritt 1 (Sortino-Nenn
 - DSR: Welche Versuchszahl gilt (100 pro Strategie oder 400 insgesamt)? Siehe E25.
 - Ensemble: tägliche Umschichtung ohne Kosten (E22).
 - Alle Annahmen E18–E32 sind noch «offen» und warten auf die Bestätigung durch das Team.
+
+---
+
+## 2026-10-19 – Einführung, Gebrauchsanweisung und Startskript
+
+**Prompt (Zusammenfassung):** Projekteinführung als PowerPoint (fachlich vollständig inkl. Entscheide und aktuellem Stand), genaue Gebrauchsanweisung, ein Skript, das die ganze Pipeline in der richtigen Reihenfolge startet und danach das Dashboard öffnet. Antworten des Teams auf offene Fragen: E19 und E22 bestätigt; E20 Vorschlag «am Ende nochmals 0.1 %», noch zu bestätigen.
+
+**Iterationen:** 2
+1. PowerPoint: Kartentext auf der Strategie-Folie überlagerte den Kopf, ein Titel brach um, Beschriftungen im Drawdown-Diagramm überlagerten die Balken. Alles nach der Bildkontrolle behoben.
+2. E20 in der Präsentation von «bestätigt» auf «zu bestätigen» korrigiert, weil die Interpretation der Antwort noch nicht bestätigt war.
+
+**Geänderte/neue Dateien:** neu `scripts/run_all.py`, `start.bat`, `docs/anleitung.md`, `docs/BMA_Projekteinfuehrung.pptx`; geändert `README.md`, `docs/entscheidungen.md` (E19/E22 bestätigt, E20 Vorschlag notiert).
+
+**Offene Punkte:** E20 bestätigen und einbauen; DSR 100 vs. 400 Versuche; Grid-Ränder S3/S4; Team-Review.

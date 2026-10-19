@@ -4,6 +4,13 @@ Berufsmaturitätsarbeit (BMA): Ein regelbasierter Bitcoin-Trading-Bot wird mit K
 
 **Stand:** Datenpipeline, Backtester, vier Strategien, Ensemble, Optimierung und In-Sample-Auswertung. Der Out-of-Sample-Test ist vorbereitet, aber noch nicht ausgeführt.
 
+## Schnellstart
+
+**Doppelklick auf `start.bat`.** Das Skript installiert die Pakete, lädt und prüft die Daten, führt die Tests, die Optimierung und die In-Sample-Auswertung aus und öffnet danach das Dashboard.
+
+- Gebrauchsanweisung: [docs/anleitung.md](docs/anleitung.md)
+- Projekteinführung (PowerPoint): [docs/BMA_Projekteinfuehrung.pptx](docs/BMA_Projekteinfuehrung.pptx)
+
 ## Datenquellen
 
 | Quelle | Zeitraum | Verwendung |
@@ -77,7 +84,8 @@ config/strategies.yaml Strategie-Parameter und Optimierungs-Grids
 src/bot/strategies/    S1–S4, Buy & Hold, Ensemble, Indikatoren
 src/bot/backtest/      Backtester (engine.py)
 src/bot/analysis/      Kennzahlen, Optimierung, Marktphasen, Auswertung
-scripts/               fetch_data, run_optimization, run_insample, run_oos
+scripts/               run_all (alles), fetch_data, run_optimization, run_insample, run_oos
+start.bat              Doppelklick-Start (ruft scripts/run_all.py auf)
 dashboard/app.py       Streamlit-Dashboard
 docs/                  Prompt-Log, KI-Fehlerlog, Review-Checkliste, Entscheidungen, OOS-Protokoll
 results/               erzeugte Berichte
