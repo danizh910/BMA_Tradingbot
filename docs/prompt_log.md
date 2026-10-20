@@ -61,3 +61,23 @@ Zusätzlich: Fehler in der eigenen Review-Checkliste aus Schritt 1 (Sortino-Nenn
 **Geänderte/neue Dateien:** neu `scripts/run_all.py`, `start.bat`, `docs/anleitung.md`, `docs/BMA_Projekteinfuehrung.pptx`; geändert `README.md`, `docs/entscheidungen.md` (E19/E22 bestätigt, E20 Vorschlag notiert).
 
 **Offene Punkte:** E20 bestätigen und einbauen; DSR 100 vs. 400 Versuche; Grid-Ränder S3/S4; Team-Review.
+
+---
+
+## 2026-10-20 – Metaprompt F: BMA-Dokumentation im Repo verankern
+
+**Prompt:** Wortlaut in `docs/prompts/F_doku.md`. Kein Code in `src/`, `scripts/run_*.py`, bestehenden Tests oder Resultaten geändert.
+
+**Iterationen:** 1. Kommentar zur S1-Heatmap in der Fotostrecke korrigiert (Wertebereich und «kein Plateau» zuerst ungenau abgelesen, nach Bildkontrolle präzisiert).
+
+**Geänderte/neue Dateien:**
+- neu: `docs/arbeitsjournal.csv` (4 Einträge aus dem Cowork-Journal unverändert + 4 neue für 30.09., 19.10., 20.10.), `docs/prompt_sammlung.csv` (19 Einträge aus dem Blatt «Prompt-Log», Nr. 17/19 ergänzt, neu Nr. 20–22), `docs/prompts/{A_init,B_umsetzung,C_naiv,D_audit,E_oos}.md` (nur Platzhalter), `docs/prompts/F_doku.md`, `docs/quellen.md`, `docs/fotostrecke.md` + `docs/fotostrecke/*.png` (5 Bilder), `docs/deklaration_entwurf.md`, `docs/status.md`, `docs/import/Arbeitsjournal_BMA_Tradingbot.xlsx`, `.claude/commands/{session-ende,fehler,quelle,fotostrecke,status,abgabe-auszug,audit}.md`, `scripts/export_prozessunterlagen.py`, `tests/test_export_prozessunterlagen.py`
+- geändert: `CLAUDE.md` (neuer Abschnitt «BMA-Dokumentation»), `pyproject.toml`/`uv.lock` (openpyxl für den Excel-Export), `docs/Vorgaben/` → `docs/vorgaben/`
+
+**Zusätzlich zum Auftrag:** Q1–Q3 (Sortino & Price 1994, Wilder 1978, Bailey & López de Prado 2014) über Crossref bzw. Open Library geprüft. Die im Journal genannten Deep-Research-Quellen (Q8–Q16) stehen nur mit Kurzangabe drin, ungeprüft.
+
+**Offene Punkte:**
+- `docs/import/BMA_Metaprompts_Umsetzung.md` fehlte → Wortlaut A–E nachtragen.
+- Git-Name ist `danizh910`, kein Klarname → Spalte «wer» bei den Repo-Einträgen offen.
+- `../naiv test/backtest.py` (Naiv-Test, Metaprompt C?) liegt ausserhalb des Repos und ist nirgends dokumentiert.
+- Alle `[bitte ergänzen]` in Journal, Prompt-Sammlung, Quellen und Deklaration.

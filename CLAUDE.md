@@ -45,3 +45,15 @@ Die Qualität des KI-generierten Codes ist selbst Untersuchungsgegenstand. **Nac
 - Vor dem Push prüfen, dass keine sensiblen Daten dabei sind (Rohdaten in `data/` bleiben ignoriert; keine Tokens, Passwörter, lokalen Pfade).
 - Tag `v0.1-ki-unreviewed` = erstes lauffähiges KI-Ergebnis vor dem Review. **Nie verändern oder verschieben.**
 - Fehler aus dem Review: Eintrag in `docs/ki_fehlerlog.csv`, Behebung in eigenem Commit mit Message «fix(review): …».
+
+## BMA-Dokumentation (Pflicht in jeder Session)
+Grundlage: `docs/vorgaben/bma_vorgaben.md` (Zusammenfassung der Schulvorgaben, im Zweifel gilt das Original).
+- Am Ende jeder Session `/session-ende` ausführen bzw. dessen Schritte erledigen.
+- Prompts des Teams in `docs/prompt_log.md` und `docs/prompt_sammlung.csv` im Wortlaut festhalten (lange Prompts: Verweis auf `docs/prompts/`). Iterationen ehrlich zählen.
+- Jeder gefundene Fehler im KI-Code → `docs/ki_fehlerlog.csv` (auch kleine, auch selbst gefundene; `gefunden_durch` korrekt setzen).
+- Neue Quellen nur in `docs/quellen.md` eintragen; nie Quellen, DOIs oder Seitenzahlen erfinden. Unbelegtes als «ungeprüft» markieren (`geprueft = nein`).
+- Texte für die Schriftliche Dokumentation: wissenschaftlich, 3. Person, keine «wir»-Form, Gendern ohne Stern/Doppelpunkt. Journal und Einzelreflexion dürfen Ich-/Wir-Form haben.
+- Wer etwas gemacht hat, steht in «wer» (aus `git config user.name`). Nicht raten, sondern `[bitte ergänzen]`.
+- Keine Schuldokumente (PDF) und keine personenbezogenen Daten ausser Namen der Teammitglieder committen.
+- Wichtige Termine aus `docs/vorgaben/bma_vorgaben.md` kennen und bei `/status` darauf hinweisen.
+- Befehle: `/session-ende`, `/fehler`, `/quelle`, `/fotostrecke`, `/status`, `/abgabe-auszug`, `/audit` (siehe `.claude/commands/`). Excel-Export: `uv run python scripts/export_prozessunterlagen.py`.

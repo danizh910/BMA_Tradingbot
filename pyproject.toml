@@ -12,6 +12,7 @@ dependencies = [
     "streamlit>=1.35",
     "plotly>=5.20",
     "matplotlib>=3.11.2",
+    "openpyxl>=3.1.5",
 ]
 
 [dependency-groups]

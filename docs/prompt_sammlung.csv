@@ -1,0 +1,90 @@
+nr,datum,tool_modell,wer,zweck,prompt_wortlaut_oder_verweis,ergebnis_verwendung,uebernommen,iterationen
+1,2026-09-23,"Claude (Anthropic), Cowork, Modell claude-opus-5-5",Daniel,These formulieren,[Screenshot Theorieheft 1.3] + «Das ist unsere Fragestellung: … das muss ich heute machen. bitte erklär mir mal deine ersten vorschläge»,"Drei These-Varianten A/B/C mit Begründung, Überprüfbarkeit und Widerlegbarkeit",teilweise (Variante B),1
+2,2026-09-23,"Claude (Anthropic), Cowork, Modell claude-opus-5-5",Daniel,Zweite These,«ich hab mal die 2te tese genommen aber bitte noch mal eine....»,Zwei Vorschläge für eine Nebenthese zur Rolle der KI,ja (Vorschlag 1),1
+3,2026-09-23,"Claude (Anthropic), Cowork, Modell claude-opus-5-5",Daniel,Auftrag klären,«also was müssen wir heute überhaub alles machen?» / «es ist in der landing page was wir abgeben müssen»,"Checkliste der Lernziele aus Kap. 1.3, Abgleich mit Landing Page (Auftrag: These formulieren)",ja,2
+4,2026-09-23,"Claude (Anthropic), Cowork, Modell claude-opus-5-5",Daniel,Zielsetzung und Methoden,"«2–3 Sätze warum überprüfbar/widerlegbar, Zielsetzung + Methoden … und frag mich nach der vision oder umsetzungsvorschläge interaktiv ab»","Fragen zu Strategien, Tools, Zeitraum, Methode 3 → Textblock These/Überprüfbarkeit/Zielsetzung/Methoden",teilweise,1
+5,2026-09-30,"Claude (Anthropic), Cowork, Modell claude-opus-5-5",Daniel,Gütekriterien Fragestellung,"«kannst du es nach objektivität, zuverlässigkeit, validität beurteilen? also hat es alles beinhaltet?»","Bewertung (Objektivität/Reliabilität teilweise, Validität schwach) und Liste fehlender Punkte",ja,1
+6,2026-09-30,"Claude (Anthropic), Cowork, Modell claude-opus-5-5",Daniel,Fragestellung schärfen,«also mach mal eine fragestellung (mit unserer fragestellung) die alle sachen beinhaltet....»,"Neue Fragestellung mit Daten, Zeitraum, Kosten, OOS, Kennzahlen, Faktoren",ja,1
+7,2026-09-30,"Claude (Anthropic), Cowork, Modell claude-opus-5-5",Daniel,Thesen neu,"«kannst du noch mal die thesen machen? such im dokument das ich dir im projekt habe, was in einer these drin sein muss …»","Hauptthese + 3 Nebenthesen mit Prüfung/Widerlegung, Check gegen Theorieheft",ja,1
+8,2026-09-30,"Claude (Anthropic), Cowork, Modell claude-opus-5-5",Daniel,Begriffe klären,"«Standardparameter vs. stark optimiert … diese frage check ich nicht bitte erklären» / «genau das machen wir doch mit ai, also die strathegie oder?»",Erklärung Parameter/Overfitting; Unterschied KI als Programmierer vs. Optimierung; Regel: nur In-Sample iterieren,ja,2
+9,2026-09-30,"Claude (Anthropic), Cowork, Modell claude-opus-5-5",Daniel,Umfang festlegen,«ist das so genug um alle thesen und neben thesen zu geben?» / «also was empfilst du? und was wären konsequenzen pros?»,"Zuordnung These → benötigte Auswertung, Optionen A/B/C, Empfehlung alle Thesen",ja (Option A),2
+10,2026-09-30,"Claude (Anthropic), Cowork, Modell claude-opus-5-5",Daniel,Finale Thesen,«also ja dann gib mir die finalen thesen nebenthesen...» / «brauchen wir auch nebenthesen oder hast du die einfach hinzugefügt?»,Finale Thesen + Definitionen; Hinweis: Theorieheft verlangt nur eine These → Version mit einer These,offen (Team entscheidet),2
+11,2026-09-30,"Claude (Anthropic), Cowork, Modell claude-opus-5-5",Daniel,Umsetzung planen,«heute möchten wir eingelich mal mit der umsetzung beginnen … ich möchte am schluss einen sauberen metaprompt … und gib mir noch metaprompts für deep research …»,"Offene Punkte abgefragt (Architektur, Long/Short, Daten, Setup), 3 Deep-Research-Prompts, Metaprompt A + B (v1)",ja,1
+12,2026-09-30,[Deep-Research-Tool ergänzen],Daniel,Deep Research 1: Strategien,"Wir sind eine Gruppe von vier Lernenden an einer Berufsmaturitätsschule in der Schweiz und schreiben unsere Berufsmaturitätsarbeit (BMA) zu folgender Fragestellung:
+
+«Inwiefern lässt sich mithilfe von KI-gestützter Softwareentwicklung ein regelbasierter Trading-Bot für Bitcoin realisieren, der im Backtesting (BTC/USDT, Tagesdaten 2018–2025, inkl. Transaktionskosten) auf einem Out-of-Sample-Zeitraum eine höhere risikoadjustierte Performance (Sharpe Ratio, Max Drawdown) als eine Buy-&-Hold-Strategie erzielt, und welchen Einfluss haben Marktphase, Parameterwahl und die Qualität des KI-generierten Codes auf den Erfolg oder Misserfolg?»
+
+Rahmenbedingungen unseres Bots:
+- Nur Long oder Cash (kein Short, kein Hebel)
+- Nur Tagesdaten: OHLCV von Binance (BTC/USDT) und der Crypto Fear & Greed Index (alternative.me)
+- Transaktionskosten 0.1 % pro Trade
+- In-Sample 2018–2022 (Entwicklung/Optimierung), Out-of-Sample 2023–2025 (einmaliger Test)
+- Regelbasiert: feste, nachvollziehbare Regeln, kein Machine Learning als Entscheider
+
+Recherchiere den aktuellen Forschungsstand zu regelbasierten Handelsstrategien für Bitcoin und Kryptowährungen und erstelle einen Bericht mit folgenden Teilen:
+
+1. Überblick Strategiefamilien: Trendfolge (z. B. Moving-Average-Crossover, Time-Series-Momentum, Donchian-Breakout), Mean Reversion (z. B. RSI, Bollinger-Bänder), Volatilitäts-basierte Ansätze (z. B. Volatility Targeting, Volatilitätsfilter), Sentiment-basierte Ansätze (Fear & Greed, konträr oder trendbestätigend), Volumen-basierte Ansätze. Für jede Familie: Grundidee, empirische Evidenz bei Bitcoin (mit Studien), typische Stärken und Schwächen je Marktphase.
+2. Kombination von Strategien: Welche Methoden gibt es (Mehrheitsentscheid, Signal-Filter, Regime-Filter, gleichgewichtete Kombination)? Was sagt die Forschung zu Robustheit vs. Overfitting?
+3. Evidenz gegenüber Buy & Hold: Welche Studien zeigen, dass regelbasierte Strategien bei Bitcoin Buy & Hold risikoadjustiert schlagen oder nicht? Nach Einbezug von Kosten und out-of-sample?
+4. Kandidatenliste für unsere Umsetzung: Schlage 6–8 konkrete Strategien vor, die mit unseren Daten umsetzbar sind. Für jede als Tabelle:
+   - exakte Regeln (Einstieg / Ausstieg) in Pseudocode
+   - Standardparameter aus der Literatur (mit Quelle)
+   - sinnvoller Suchbereich für eine Optimierung mit ca. 100 Kombinationen
+   - erwartetes Verhalten in Bull- und Bärenphasen (Bull = Kurs über 200-Tage-Linie)
+   - Komplexität der Umsetzung (tief/mittel/hoch)
+5. Empfehlung: Welche 3–5 Strategien sollten wir wählen, damit wir unterschiedliche Strategiefamilien abdecken und die Resultate gut vergleichen können? Begründe kurz.
+
+Anforderungen an die Quellen:
+- Bevorzuge wissenschaftliche Studien (Journals, SSRN, arXiv) und seriöse Fachquellen, keine Trading-Blogs ohne Belege
+- Quellen im APA-Stil mit Link
+- Fasse jede Quelle in einem Satz zusammen und nenne ein Argument, warum wir sie verwenden sollten
+- Nenne am Schluss die zwei wichtigsten Quellen, falls wir nur Zeit für zwei haben
+
+Schreibe verständlich für Lernende ohne Finanzstudium. Erkläre Fachbegriffe beim ersten Auftreten kurz.","Bericht «Konzeption_deepresearch1»: 7 Strategien mit Regeln und Suchbereichen, Empfehlung 4 Strategien, Quellen",teilweise (Quellen prüfen),1
+13,2026-09-30,[Deep-Research-Tool ergänzen],Daniel,Deep Research 2: Daten/Methodik,"Wir sind eine Gruppe von vier Lernenden an einer Berufsmaturitätsschule in der Schweiz. In unserer BMA entwickeln wir mit KI-Unterstützung (Claude Code, Python) einen regelbasierten Bitcoin-Trading-Bot und testen ihn im Backtesting gegen Buy & Hold.
+
+Setup: BTC/USDT Tagesdaten 2018–2025, In-Sample 2018–2022, Out-of-Sample 2023–2025, nur Long/Cash, 0.1 % Gebühren pro Trade, Kennzahlen Sharpe Ratio und Max Drawdown. Zusätzliche Daten: Crypto Fear & Greed Index. Marktphasen: Bull = Kurs über 200-Tage-Linie, Bear = darunter.
+
+Erstelle einen Bericht mit folgenden Teilen:
+
+1. Datenquellen: 
+   - Binance: öffentliche API (Klines-Endpoint) vs. Bulk-Download (data.binance.vision). Seit wann gibt es BTCUSDT, welche Limits, welche Zeitzone (UTC), wie wird eine Tageskerze definiert?
+   - Fear & Greed Index (alternative.me): Seit wann verfügbar, wie wird er berechnet, wann wird er veröffentlicht (wichtig für Look-Ahead)?
+   - Bekannte Datenprobleme (Lücken, Ausreisser, Börsenausfälle) und wie man sie prüft
+   - Alternative Quellen zur Kontrolle (z. B. CoinGecko, CryptoCompare, Kaggle)
+2. Backtesting-Methodik:
+   - Wie berechnet man Sharpe Ratio, Sortino, Max Drawdown, CAGR bei Krypto korrekt (Annualisierung mit 365 vs. 252 Tagen, risikofreier Zins)?
+   - Realistische Transaktionskosten und Slippage für BTC/USDT auf Binance
+   - Häufige Fehler: Look-Ahead-Bias, Overfitting/Data Snooping, Survivorship Bias, falsche Signal-Verschiebung, Kosten vergessen, Kerzenschluss vs. Ausführungszeitpunkt
+   - In-Sample/Out-of-Sample vs. Walk-Forward: Vor- und Nachteile
+   - Methoden, um Overfitting bei Parameteroptimierung zu messen oder zu korrigieren (z. B. Deflated Sharpe Ratio, Probability of Backtest Overfitting nach Bailey/López de Prado), einfach erklärt
+3. Gütekriterien: Wie sichern wir Objektivität, Reliabilität und Validität in einem Backtest? Konkrete Massnahmen.
+4. Checkliste: Eine Checkliste mit 15–20 Punkten, mit der wir unseren (KI-generierten) Backtest-Code auf Fehler prüfen können.
+
+Anforderungen:
+- Quellen im APA-Stil mit Link, bevorzugt wissenschaftliche Literatur und offizielle Dokumentationen
+- Fasse jede Quelle in einem Satz zusammen und nenne ein Argument, warum wir sie verwenden sollten
+- Verständlich für Lernende ohne Finanzstudium","Bericht «Deepresearch_2»: Datenquellen, Aufwärmproblem, Kennzahlen, DSR/PBO, Checkliste mit 20 Punkten",ja,1
+14,2026-09-30,[Deep-Research-Tool ergänzen],Daniel,Deep Research 3: KI-Entwicklung,"Wir sind eine Gruppe von vier Lernenden an einer Berufsmaturitätsschule in der Schweiz. In unserer BMA untersuchen wir, ob sich mit KI-gestützter Softwareentwicklung (Claude Code) ein regelbasierter Bitcoin-Trading-Bot mit Backtesting realisieren lässt. Ein Teil unserer These lautet, dass ungeprüfter KI-generierter Code methodische Fehler enthält (z. B. Look-Ahead-Bias, falsch berechnete Kosten), die zu einer überschätzten Performance führen.
+
+Erstelle einen Bericht mit folgenden Teilen:
+
+1. Begriffe: KI-gestützte Softwareentwicklung, AI Coding Assistants, agentische Coding-Tools, «Vibe Coding». Wie grenzen sie sich ab?
+2. Forschungsstand zur Code-Qualität von KI-Tools: Studien zu Korrektheit, typischen Fehlerarten, Sicherheitslücken und Produktivität (z. B. Studien zu GitHub Copilot, ChatGPT, Claude). Was sagt die Forschung zu Fehlern, die nicht zu Abstürzen führen, sondern zu falschen Resultaten («stille Fehler»)?
+3. KI im Bereich Finanzen/Quant: Gibt es Untersuchungen oder dokumentierte Fälle zu KI-generiertem Code für Trading oder Backtesting? Typische Fehler?
+4. Einfluss der Prompt-Qualität: Was sagt die Forschung dazu, wie präzise Anforderungen die Qualität des generierten Codes beeinflussen?
+5. Messbarkeit: Wie können wir in unserer Arbeit die Qualität des KI-Codes messen? Schlage konkrete, für Lernende machbare Kennzahlen vor (z. B. Anzahl gefundener Fehler pro Kategorie, Anteil manuell geänderter Zeilen, Anzahl Iterationen, Testabdeckung, Unterschied der Kennzahlen vor/nach Review).
+6. Interview-Vorbereitung: Schlage 10–12 offene Fragen für ein Interview mit einem Softwareentwickler zu Chancen und Grenzen von KI-gestützter Entwicklung vor.
+
+Anforderungen:
+- Quellen im APA-Stil mit Link, bevorzugt wissenschaftliche Studien (arXiv, ACM, IEEE) und seriöse Berichte
+- Fasse jede Quelle in einem Satz zusammen und nenne ein Argument, warum wir sie verwenden sollten
+- Verständlich für Lernende","Bericht «deepreseach_3»: Forschungsstand Code-Qualität, Kennzahlen für KI-Code, Interviewleitfaden",teilweise (Quellen prüfen),1
+15,2026-09-30,"Claude (Anthropic), Cowork, Modell claude-opus-5-5",Daniel,Deep Research auswerten,«also das war der deepreseach output … was sagst du daszu? was ist neu?»,"Liste Neuerungen (Aufwärmphase, Slippage, Bereinigung, Plateau, DSR, KI-Kennzahlen), Kritik an Quellen/Parametern, Vorschlag naiv vs. spezifiziert",ja,1
+16,2026-09-30,"Claude (Anthropic), Cowork, Modell claude-opus-5-5",Daniel,Metaprompts v2 + Doku,«ja lauft.... bitte jetzt die metaprompts.... und was sind die next steps? kannst du selbst noch jeweils eine dokuentation machen …»,"Metaprompts A, B, C (naiv), D (Audit), E (OOS) v2; dieses Arbeitsjournal + Prompt-Log",ja,1
+17,2026-09-30,Claude Code (Anthropic) [bitte ergänzen: Modell],"danizh910 (git) [bitte ergänzen: Klarname, weitere Beteiligte]",Metaprompt A: Initialisierung,docs/prompts/A_init.md (Metaprompt A v2),"Repo-Struktur, Datenpipeline, OOS-Sperre, Tests, CLAUDE.md, Dashboard «Daten» (Commit 4c0a2f2). Details docs/prompt_log.md, 2026-09-30.",ja,1
+18,,Claude Code [Modell ergänzen],[Person],Metaprompt C: Naiv-Test,"siehe Dokument BMA_Metaprompts_Umsetzung.md, Metaprompt C (v2)","[nach Ausführung ergänzen, inkl. Kennzahlen]",,
+19,2026-09-30,Claude Code (Anthropic) [bitte ergänzen: Modell],"danizh910 (git) [bitte ergänzen: Klarname, weitere Beteiligte]",Metaprompt B: Umsetzung,docs/prompts/B_umsetzung.md (Metaprompt B v2),"Backtester, Kennzahlen, S1–S4, Ensemble, Optimierung, Marktphasen nur In-Sample; Tag v0.1-ki-unreviewed (Commit 0414bd0).",ja,3
+20,2026-10-19,Claude Code (Anthropic) [bitte ergänzen: Modell],"danizh910 (git) [bitte ergänzen: Klarname, weitere Beteiligte]","Einführung, Anleitung, Startskript","Kurzfassung: Projekteinführung als PowerPoint (fachlich vollständig inkl. Entscheide und Stand), genaue Gebrauchsanweisung, ein Skript, das die Pipeline in der richtigen Reihenfolge startet und danach das Dashboard öffnet. Dazu Antworten des Teams zu E19, E20, E22. [bitte ergänzen: Wortlaut]","docs/BMA_Projekteinfuehrung.pptx, docs/anleitung.md, scripts/run_all.py, start.bat (Commit 9f9f9f4)",ja,2
+21,2026-10-20,Claude Code (Anthropic) [bitte ergänzen: Modell],"danizh910 (git) [bitte ergänzen: Klarname, weitere Beteiligte]",Regel: nach jedem Commit pushen,"[bitte ergänzen: Wortlaut, nicht im prompt_log erfasst]",Abschnitt Git in CLAUDE.md (Commit 0f39a38),ja,
+22,2026-10-20,"Claude Code (Anthropic), Modell claude-opus-5-5","danizh910 (git) [bitte ergänzen: Klarname, weitere Beteiligte]",Metaprompt F: BMA-Doku verankern,docs/prompts/F_doku.md,"Journal, Prompt-Sammlung, Quellen, Fotostrecke, Deklaration, Status, Befehle unter .claude/commands/, Export-Skript",ja,1
