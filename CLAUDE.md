@@ -41,5 +41,7 @@ Die Qualität des KI-generierten Codes ist selbst Untersuchungsgegenstand. **Nac
 - Dashboard: `uv run streamlit run dashboard/app.py`
 
 ## Git
+- Remote: https://github.com/danizh910/BMA_Tradingbot (`origin`). **Nach jedem Commit sofort pushen** (`git push origin main`, Tags mit `--follow-tags`), damit das ganze Team immer die neuste Version hat.
+- Vor dem Push prüfen, dass keine sensiblen Daten dabei sind (Rohdaten in `data/` bleiben ignoriert; keine Tokens, Passwörter, lokalen Pfade).
 - Tag `v0.1-ki-unreviewed` = erstes lauffähiges KI-Ergebnis vor dem Review. **Nie verändern oder verschieben.**
 - Fehler aus dem Review: Eintrag in `docs/ki_fehlerlog.csv`, Behebung in eigenem Commit mit Message «fix(review): …».
